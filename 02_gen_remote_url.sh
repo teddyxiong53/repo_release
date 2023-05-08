@@ -2,10 +2,8 @@
 
 # set -e
 
-if [[ "$code_dir" == "" ]]; then
-    echo "please set code_dir in ENV"
-    exit 1
-fi
+source common.sh
+env_judge
 
 # cd path and git remote add
 while read line

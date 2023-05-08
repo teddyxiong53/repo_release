@@ -2,14 +2,8 @@
 
 set -e
 
-if [[ "$code_dir" == "" ]]; then
-    echo "please set code_dir in ENV"
-    exit 1
-fi
-if [[ "$version" == "" ]]; then
-    echo "please set version in ENV"
-    exit 1
-fi
+source common.sh
+env_judge
 
 branch_name=""
 

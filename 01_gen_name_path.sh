@@ -2,17 +2,15 @@
 
 set -e
 
-
-if [[ "$code_dir" == "" ]]; then
-    echo "please set code_dir in ENV"
-    exit 1
-fi
-if [[ "$xml_file" == "" ]]; then
-    echo "please set xml_file in ENV"
-    exit 1
-fi
-if [[ "$version" == "" ]]; then
-    echo "please set version in ENV"
+usage() {
+    echo "
+example:
+export code_dir=/home/hanliang.xiong/work/a113l2/code
+export xml_file=buildroot-openlinux-202305-a113l2-ba400-spk.xml
+export version=buildroot-openlinux-202305-a113l2-ba400-spk"
+}
+if [ "$code_dir" == "" -o "$xml_file" == "" -o "$version" == ""  ]; then
+    usage
     exit 1
 fi
 

@@ -7,8 +7,6 @@ xml_dir=sys.argv[1] + "/.repo/manifests/"
 xml_file=xml_dir+os.environ.get('xml_file')
 
 
-
-
 def process_xml():
     tree = et.parse(xml_file)
     # 文档根元素
@@ -40,6 +38,10 @@ def process_xml():
             print("skip repo {}".format(name_attr))
             continue
         if "third_party/wake_engine/sai" in path_attr:
+            print("skip repo {}".format(name_attr))
+            continue
+        # toolchain版本都不会变化的。所以没有必要每次都创建分支。
+        if "toolchain/" in path_attr:
             print("skip repo {}".format(name_attr))
             continue
         of.write("{}|{}\n".format(name_attr, path_attr))
